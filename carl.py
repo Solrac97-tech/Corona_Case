@@ -26,7 +26,7 @@ class Main:
         def get_data(self,asw):
                 data = r.get(asw).text
                 return json.loads(data)
-        def tampil(self,data,negara=False,Provinsi=False,world=False):
+        def display(self,data,negara=False,Provinsi=False,world=False):
                 if negara:
                         data = data[0]
                         print()
