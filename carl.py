@@ -20,7 +20,7 @@ class Main:
                 print("    - Exit                       Exiting program " )
                 print()
                 print("[*] Author : sOlrac ")
-                print("[*] Team : fun7society ")
+                print("[*] Team : PlaySafe ")
                 print()
                 print("[!] This tools using API from https://globalcoronacase.com./api\n")
         def get_data(self,asw):
@@ -53,21 +53,19 @@ class Main:
                 carl = input("sOlrac >>> ").lower()
                 if carl in ["?","help"]:
                         self.help()
-                elif carl == "indonesia":
-                        data = self.get_data(self.country.format('indonesia'))
-                        self.tampil(data,negara=True)
+               
                 elif carl == "provinsi":
                         print("\n\t[ CORONA ON PROVINCE ]")
                         data = self.get_data(self.country.format(self.idn))
                         for x in data:
-                                self.tampil(x,Provinsi=True)
+                                self.display(x,Provinsi=True)
                 elif carl == "world":
                         print("\n\t[ CORONA IN THE WORLD ]\n")
                         while True:
                                 carl = input("sOlrac(GLOBAL) >>> ").title()
                                 if carl == "All":
                                         for x in data:
-                                                self.tampil(x)
+                                                self.display(x)
                                 elif "Exit" in carl:
                                         while True:
                                                 self.menu()
@@ -79,13 +77,13 @@ class Main:
                                         data = self.get_data("https://api.kawalcorona.com")
                                         for x in data:
                                                 if carl in x["attributes"]["Country_Region"]:
-                                                        self.tampil(x,world=True)
+                                                        self.display(x,world=True)
                 elif carl == "clear":
                         self.clear()
                 elif carl == 'exit':
                         exit()
                 else:
-                        print(f"{R}[!] No command \"{zet}\" found. Type \"?\" or \"help\" to description {W}\n")
+                        print(f"{R}[!] No command \"{carl}\" found. Type \"?\" or \"help\" to description {W}\n")
 try:
         print('\n\n\t[ CORONA by sOlrac. ]\n')
         import requests as r
